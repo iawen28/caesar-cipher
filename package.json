@@ -2,6 +2,7 @@
   "name": "caesar-cipher",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://iawen28.github.io/caesar-cipher",
   "dependencies": {
     "@material-ui/core": "^4.5.1",
     "react": "^16.10.2",
