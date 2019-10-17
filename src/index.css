@@ -116,8 +116,69 @@ body {
     linear-gradient(90deg, #FFF,#FFF)
 }
 
-#mainApp {
-  width: 90vw;
-  margin: 0 auto;
+h1, h2 {
+  font-family: roboto;
 }
+
+h1 {
+  margin-top: -10px;
+}
+
+#root {
+  position: absolute;
+  height: auto;
+  width: 90vw;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.top-section {
+  animation: 1s ease-out 1s fadeIn;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.paper-container {
+  animation: 1s ease-out 0s slideIn;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 2vw 10vw;
+}
+
+.paper-container > div {
+  min-width: 150px;
+  margin: 4vw auto;
+}
+
+.cipher-section {
+  margin-bottom: 4vw;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
 

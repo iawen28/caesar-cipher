@@ -5,9 +5,9 @@ class Encryption extends Component {
 
   render() {
     return (
-      <div className="right">
+      <div className="encryption-section">
         <center>
-          <h2>Ciphertext</h2>
+          <h2>Encryption</h2>
           <TextField
             multiline
             rowsMax="10"

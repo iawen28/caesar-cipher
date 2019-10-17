@@ -3,10 +3,7 @@ import React, {Component} from 'react';
 import TextField from '@material-ui/core/TextField';
 
 class Text extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+  
   changeHandler(e) {
     console.log(e.target.value);
       if (typeof this.props.onChange === 'function') {
@@ -16,14 +13,14 @@ class Text extends Component {
 
     render() {
       return (
-        <div className="left">
+        <div className="input-text-section">
           <center>
-            <h2>Plaintext</h2>
+            <h2>Text</h2>
             <TextField
               multiline
               rowsMax="10"
               margin="normal"
-              placeholder="Enter plaintext"
+              placeholder="Enter your text"
               value={this.props.value} 
               onChange={this.changeHandler.bind(this)} 
             />
@@ -31,4 +28,5 @@ class Text extends Component {
         </div>);
     }
 }
+
 export default Text;

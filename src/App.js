@@ -41,10 +41,13 @@ class App extends Component {
 
   render() {
     return (
-      <div id="mainApp">
-        <Paper elevation={10} className="child-container">
-          <Text value={this.state.text} onChange={this.changeText.bind(this)}></Text>
+      <div className="main">
+        <div className="top-section">
+          <h1>Caesar's Cipher</h1>
           <Cipher value={this.state.cipher} onChange={this.changeCipher.bind(this)}></Cipher>
+        </div>
+        <Paper elevation={6} className="paper-container">
+          <Text value={this.state.text} onChange={this.changeText.bind(this)}></Text>
           <Encryption value={this.state.encryption}></Encryption>
         </Paper>
       </div>
