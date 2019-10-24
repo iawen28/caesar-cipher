@@ -1,30 +1,25 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import Text from './components/Text';
 import Encryption from './components/Encryption';
 import Cipher from './components/Cipher';
 import Paper from '@material-ui/core/Paper';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: '',
-      cipher: 0,
-      encryption: ''
-    };
+function App(props) {
+  const [text, setST] = useState('');
+  const [encryption, setSE] = useState('');
+  const [cipher, setSC] = useState(0);
+
+  const changeText = (str) => {
+    setST(str);
+    encrypt(str, parseInt(cipher));
   }
 
-  changeText(str) {
-    this.setState({text: str});
-    this.encrypt(str, parseInt(this.state.cipher));
+  const changeCipher = (data) => {
+    setSC(data);
+    encrypt(text, parseInt(data));
   }
 
-  changeCipher(data) {
-    this.setState({cipher: data})
-    this.encrypt(this.state.text, parseInt(data));
-  }
-
-  encrypt(text, cipher) {
+  const encrypt = (text, cipher) => {
     let result = '';
     for (let i=0; i<text.length; i++) {
       const char = text.charCodeAt(i);
@@ -36,23 +31,21 @@ class App extends Component {
       } 
       result += String.fromCharCode(position);
     }
-    this.setState({encryption: result});
+    setSE(result);
   }
 
-  render() {
-    return (
-      <div className="main">
-        <div className="top-section">
-          <h1>Caesar's Cipher</h1>
-          <Cipher value={this.state.cipher} onChange={this.changeCipher.bind(this)}></Cipher>
-        </div>
-        <Paper elevation={6} className="paper-container">
-          <Text value={this.state.text} onChange={this.changeText.bind(this)}></Text>
-          <Encryption value={this.state.encryption}></Encryption>
-        </Paper>
+  return (
+    <div className="main">
+      <div className="top-section">
+        <h1>Caesar's Cipher</h1>
+        <Cipher value={cipher} onChange={changeCipher.bind(this)}></Cipher>
       </div>
-    );
-  }
+      <Paper elevation={6} className="paper-container">
+        <Text value={text} onChange={changeText.bind(this)}></Text>
+        <Encryption value={encryption}></Encryption>
+      </Paper>
+    </div>
+  );
 }
 
 export default App;

@@ -1,22 +1,21 @@
-import React, {Component} from 'react';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
 
-class Encryption extends Component {
+function Encryption(props) {
 
-  render() {
-    return (
-      <div className="encryption-section">
-        <center>
-          <h2>Encryption</h2>
-          <TextField
-            multiline
-            rowsMax="10"
-            margin="normal"
-            value={this.props.value}
-          />
-        </center>
-      </div>);
-    }
+  return (
+    <div className="encryption-section">
+      <center>
+        <h2>Encryption</h2>
+        <TextField
+          multiline
+          rowsMax="10"
+          margin="normal"
+          value={props.value}
+        />
+      </center>
+    </div>
+  );    
 }
 
 export default Encryption;
